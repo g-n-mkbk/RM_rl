@@ -379,3 +379,24 @@
 
 路径: /home/xybuser/rl/RM_rl
 命令: git status --short --branch
+
+路径: /home/xybuser/rl/RM_rl
+命令: git push origin master
+
+路径: /home/xybuser/rl/RM_rl
+命令: git push -u origin work/demo-branch
+
+路径: /home/xybuser/rl/RM_rl
+命令: git status --short --branch
+
+路径: /home/xybuser/rl/RM_rl
+命令: git add command.md
+
+路径: /home/xybuser/rl/RM_rl
+命令: git commit -m "docs: record push commands"
+
+路径: /home/xybuser/rl/RM_rl
+命令: git push
+
+路径: /home/xybuser/rl/RM_rl
+命令: git status --short --branch
