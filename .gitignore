@@ -22,3 +22,6 @@ checkpoints/
 *.pth
 *.onnx
 *.log
+
+# Local deletion backups required by account rules
+*_bak[0-9]*.*

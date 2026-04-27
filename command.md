@@ -1189,3 +1189,85 @@ PY
 
 - 路径: /home/xybuser/rl/RM_rl
   命令: git add .gitignore AGENTS.md command.md docs/GIT_WORKFLOW.md sudo_log.md .codex .vscode vscode_terminal.md （沙箱写 .git 受限后重试）
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: sed -n '1,260p' /home/xybuser/.codex_dh/AGENTS.md
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: sed -n '1,220p' AGENTS.md
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: rg -n "Git|github|GitHub|pull|push|fetch|visible-command|command.md|sudo_log|codex-dh|CODEX_HOME" /home/xybuser/.codex_dh/AGENTS.md AGENTS.md docs .vscode vscode_terminal.md
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: rg -n "RM_rl|GitHub|command.md|sudo_log|visible-command|codex-dh" /home/xybuser/.codex_dh/memories/MEMORY.md
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: ls -la docs
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git status --short --branch
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: sed -n '1,120p' docs/CODEX_WORKFLOW.md
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: apply_patch 修改 /home/xybuser/.codex_dh/AGENTS.md 添加 Git 版本同步规则
+- 路径: /home/xybuser/rl/RM_rl
+  命令: apply_patch 修改 AGENTS.md 和 .gitignore，收敛重复规则并忽略本地备份
+- 路径: /home/xybuser/rl/RM_rl
+  命令: cp docs/CODEX_WORKFLOW.md docs/CODEX_WORKFLOW_bak0.md
+- 路径: /home/xybuser/rl/RM_rl
+  命令: cp docs/GIT_WORKFLOW.md docs/GIT_WORKFLOW_bak0.md
+- 路径: /home/xybuser/rl/RM_rl
+  命令: rm docs/CODEX_WORKFLOW.md docs/GIT_WORKFLOW.md
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: sed -n '1,160p' AGENTS.md
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: sed -n '1,80p' /home/xybuser/.codex_dh/AGENTS.md
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git diff --stat
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git status --short --branch --ignored=matching
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git fetch origin
+- 路径: /home/xybuser/rl/RM_rl
+  命令: /home/xybuser/.codex_dh/skills/visible-command/scripts/run-visible-command.sh git-fetch-before-global-rule-cleanup 'cd /home/xybuser/rl/RM_rl && git fetch origin'
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: tail -n 160 /tmp/codex_git-fetch-before-global-rule-cleanup.log
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git status --short --branch
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git rev-list --left-right --count HEAD...origin/$(git branch --show-current)
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git diff --check
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: ls -la docs
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git diff -- AGENTS.md .gitignore docs/CODEX_WORKFLOW.md docs/GIT_WORKFLOW.md
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git add .gitignore AGENTS.md command.md docs/CODEX_WORKFLOW.md docs/GIT_WORKFLOW.md
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git diff --cached --stat
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git commit -m "docs: centralize git sync rules"
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git push
+- 路径: /home/xybuser/rl/RM_rl
+  命令: /home/xybuser/.codex_dh/skills/visible-command/scripts/run-visible-command.sh git-push-centralize-sync-rules 'cd /home/xybuser/rl/RM_rl && git push'
+- 路径: /home/xybuser/rl/RM_rl
+  命令: tail -n 180 /tmp/codex_git-push-centralize-sync-rules.log
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git status --short --branch --ignored=matching

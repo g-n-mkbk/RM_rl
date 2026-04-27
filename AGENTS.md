@@ -15,21 +15,8 @@
   - Conda：`conda create -n rm-rl python=3.8`
   - venv：`python3 -m venv .venv`
 
-## Git 规则
-
-- 修改前先查看 `git status --short --branch`。
-- 不覆盖用户已有改动。
-- 推荐新功能和实验使用独立分支，例如 `work/codex-docs`。
-- 小步提交，提交信息写清楚目的。
-- 推送前检查：
-  - `git status --short`
-  - 必要时运行对应测试或最小验证命令
-
 ## 项目规范
 
 - Python 代码保持现有风格，避免无关重构。
 - 强化学习训练输出、模型权重、日志和大文件不要随意提交，除非用户明确要求。
 - 新增文档优先放在 `docs/`。
-- 与 GitHub/VSCode/Codex 工作流相关的说明优先维护：
-  - `docs/CODEX_WORKFLOW.md`
-  - `docs/GIT_WORKFLOW.md`
