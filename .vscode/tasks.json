@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Codex: Open CLI",
+      "type": "shell",
+      "command": "${workspaceFolder}/.vscode/bin/codex-dh",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "panel": "new",
+        "focus": true,
+        "clear": false
+      }
+    },
+    {
+      "label": "Codex: Resume Last Chat",
+      "type": "shell",
+      "command": "${workspaceFolder}/.vscode/bin/codex-dh resume --last",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "panel": "new",
+        "focus": true,
+        "clear": false
+      }
+    },
+    {
+      "label": "Codex: Pick Previous Chat",
+      "type": "shell",
+      "command": "${workspaceFolder}/.vscode/bin/codex-dh resume",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "panel": "new",
+        "focus": true,
+        "clear": false
+      }
+    }
+  ]
+}

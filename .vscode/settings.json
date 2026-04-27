@@ -1,0 +1,14 @@
+{
+    "cmake.sourceDirectory": "/home/xybuser/rl/RM_rl/robomaster2D/robomaster2D/path_planning",
+    "terminal.integrated.env.linux": {
+        "PATH": "${workspaceFolder}/.vscode/bin:/home/xybuser/.nvm/versions/node/v24.14.0/bin:${env:PATH}",
+        "HTTP_PROXY": "http://127.0.0.1:7890/",
+        "HTTPS_PROXY": "http://127.0.0.1:7890/",
+        "ALL_PROXY": "socks://127.0.0.1:7890/",
+        "NO_PROXY": "localhost,127.0.0.1,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,::1",
+        "http_proxy": "http://127.0.0.1:7890/",
+        "https_proxy": "http://127.0.0.1:7890/",
+        "all_proxy": "socks://127.0.0.1:7890/",
+        "no_proxy": "localhost,127.0.0.1,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,::1"
+    }
+}
