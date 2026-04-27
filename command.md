@@ -1545,3 +1545,51 @@ PY
   命令: git push
 - 路径: /home/xybuser/rl/RM_rl
   命令: /home/xybuser/.codex_dh/skills/visible-command/scripts/run-visible-command.sh git-push-vscode-codex-dh-check 'cd /home/xybuser/rl/RM_rl && git push'
+- 路径: /home/xybuser/rl/RM_rl
+  命令: rg -n "RM_rl|codex-dh|CODEX_HOME|command.md|GitHub|visible-command|~/.codex" /home/xybuser/.codex_dh/memories/MEMORY.md
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git status --short --branch --ignored=matching
+- 路径: /home/xybuser/rl/RM_rl
+  命令: rg -n "codex|CODEX_HOME|AGENTS|\.codex|proxy|chatgpt.cliExecutable|localEnvironmentConfigPath" /home/xybuser/.config/Code/User/settings.json /home/xybuser/rl/RM_rl/.vscode /home/xybuser/.local/bin/codex-dh /home/xybuser/.config/environment.d/10-codex-proxy.conf /home/xybuser/.codex_dh/AGENTS.md
+- 路径: /home/xybuser/rl/RM_rl
+  命令: node -e "const fs=require('fs'); const p='/home/xybuser/.vscode/extensions/openai.chatgpt-26.422.30944-linux-x64/out/extension.js'; const s=fs.readFileSync(p,'utf8'); console.log({homedirCodex:(s.match(/homedir\(\),\"\\.codex\"/g)||[]).length,homedirCodexDh:(s.match(/homedir\(\),\"\\.codex_dh\"/g)||[]).length,homeCodex:(s.match(/e\.HOME,\"\\.codex\"/g)||[]).length,homeCodexDh:(s.match(/e\.HOME,\"\\.codex_dh\"/g)||[]).length,localEnvConfig:(s.match(/codex\.localEnvironmentConfigPath/g)||[]).length});"
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: apply_patch 新增 docs/vscode_trans.md，记录 VSCode/Codex 路径迁移步骤
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: sed -n '1,260p' docs/vscode_trans.md
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git diff --stat
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git status --short --branch --ignored=matching
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: sed -n '1,220p' /home/xybuser/.codex_dh/skills/visible-command/SKILL.md
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: /home/xybuser/.codex_dh/skills/visible-command/scripts/run-visible-command.sh git-fetch-vscode-trans 'cd /home/xybuser/rl/RM_rl && git fetch origin'
+- 路径: /home/xybuser/rl/RM_rl
+  命令: tail -n 120 /tmp/codex_git-fetch-vscode-trans.log
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: tail -n 120 /tmp/codex_git-fetch-vscode-trans.log
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git branch --show-current
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git rev-list --left-right --count HEAD...origin/$(git branch --show-current)
+
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git status --short --branch --ignored=matching
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git add docs/vscode_trans.md command.md
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git diff --cached --stat
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git commit -m 'docs: document vscode codex migration'
+- 路径: /home/xybuser/rl/RM_rl
+  命令: git rev-parse --short HEAD
+- 路径: /home/xybuser/rl/RM_rl
+  命令: /home/xybuser/.codex_dh/skills/visible-command/scripts/run-visible-command.sh git-push-vscode-trans 'cd /home/xybuser/rl/RM_rl && git push'
+- 路径: /home/xybuser/rl/RM_rl
+  命令: timeout 60 bash -lc 'until grep -q "^exit code:" /tmp/codex_git-push-vscode-trans.log 2>/dev/null; do sleep 1; done; tail -n 120 /tmp/codex_git-push-vscode-trans.log; git status --short --branch --ignored=matching'
