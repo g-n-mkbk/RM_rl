@@ -2,14 +2,32 @@ import robomaster2D
 import gym
 import numpy as np
 from copy import deepcopy
+import random
+import torch
 import torch.multiprocessing as mp
 
 gym.logger.set_level(40)
 
 
+def seed_everything(seed):
+    if seed is None:
+        return
+    seed = int(seed)
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed(seed)
+        torch.cuda.manual_seed_all(seed)
+
+
 class PreprocessEnv(gym.Wrapper):  # environment wrapper
-    def __init__(self, env, if_print=True):
-        self.env = gym.make(env) if isinstance(env, str) else env
+    def __init__(self, env, if_print=True, env_args=None, seed=None):
+        seed_everything(seed)
+        if isinstance(env, str):
+            self.env = gym.make(env, args=deepcopy(env_args)) if env_args is not None else gym.make(env)
+        else:
+            self.env = env
         super(PreprocessEnv, self).__init__(self.env)
         self.if_multi_processing = False
         (self.env_name, self.state_dim, self.action_dim, self.action_max, self.max_step,
@@ -35,12 +53,17 @@ class PreprocessEnv(gym.Wrapper):  # environment wrapper
 
 
 class VecEnvironments:
-    def __init__(self, env_name, env_num, pseudo_step=0, seed_offset=0):
+    def __init__(self, env_name, env_num, pseudo_step=0, seed_offset=0, env_args=None):
         self.env_num = env_num
         self.seed_offset = seed_offset
+        self.worker_seeds = [int(seed_offset) + env_id for env_id in range(env_num)]
         print(f"\n{env_num} envs launched \n")
         self.if_multi_processing = True
-        self.envs = [PreprocessEnv(env_name, if_print=True if env_id == 0 else False) for env_id in range(env_num)]
+        self.envs = [
+            PreprocessEnv(env_name, if_print=True if env_id == 0 else False,
+                          env_args=env_args, seed=self.worker_seeds[env_id])
+            for env_id in range(env_num)
+        ]
         self.state_dim = self.envs[0].state_dim
         self.observation_matrix_shape = self.envs[0].observation_matrix_shape
         self.action_dim = self.envs[0].action_dim
@@ -89,7 +112,7 @@ class VecEnvironments:
             self.states_stack = deepcopy(self.init_state_stack)
 
     def run(self, index):
-        np.random.seed(index + self.seed_offset)
+        seed_everything(self.worker_seeds[index])
         self.agent_conns[index].close()
         while True:
             request, action = self.env_conns[index].recv()

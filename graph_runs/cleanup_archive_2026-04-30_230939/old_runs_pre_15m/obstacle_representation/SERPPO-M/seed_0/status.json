@@ -1,0 +1,9 @@
+{
+  "status": "completed",
+  "start_time": "2026-04-28T01:02:19.054976+00:00",
+  "end_time": "2026-04-28T01:24:51.419077+00:00",
+  "final_step": 180305,
+  "final_checkpoint": "/home/xybuser/rl/RM_rl/runs_multi_seed/obstacle_representation/SERPPO-M/seed_0/checkpoints/actor_best.pth",
+  "has_nan": false,
+  "error": "Reached adjusted 180000-step budget; original 196608 target caused CUDA OOM in local-map CNN critic after valid logs/checkpoint were saved."
+}

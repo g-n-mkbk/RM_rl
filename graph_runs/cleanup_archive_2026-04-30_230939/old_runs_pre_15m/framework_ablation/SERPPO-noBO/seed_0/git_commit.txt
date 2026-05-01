@@ -1,0 +1,34 @@
+$ git rev-parse HEAD
+7b6593e1f0c9e2d197929658d0b332b03478895b
+$ git status --short --branch
+## work/demo-branch...origin/work/demo-branch
+ M .gitignore
+ M command.md
+ M elegantrl_dq/agents/AgentPPO.py
+ M elegantrl_dq/envs/env.py
+ M elegantrl_dq/train/run.py
+ M robomaster2D/robomaster2D/envs/RMUA_Env_for_RL.py
+ M robomaster2D/robomaster2D/envs/options.py
+ M robomaster2D/robomaster2D/envs/src/agents/nn_enemy.py
+ M robomaster2D/robomaster2D/envs/src/agents/rl_trainer.py
+ M robomaster2D/robomaster2D/envs/src/agents_base.py
+ D vscode_terminal.md
+?? data_quality_report.md
+?? docs/experiment_readiness_report.md
+?? docs/vscode_terminal.md
+?? "docs/\350\256\272\346\226\207latex\344\273\243\347\240\201.docx"
+?? "docs/\350\256\272\346\226\207\345\206\205\345\256\271.pdf"
+?? eval_inventory.csv
+?? eval_results_smoke_bak0/
+?? experiment_registry.yaml
+?? failed_runs.txt
+?? robomaster2D/robomaster2D/envs/src/agents/random_enemy.py
+?? run_all_10seeds.sh
+?? run_all_evals.sh
+?? run_inventory.csv
+?? runs_multi_seed/
+?? runs_multi_seed_smoke_bak0/
+?? scripts/plot_training_curves.py
+?? scripts/quality_report.py
+?? scripts/rm_evaluate.py
+?? scripts/rm_experiment.py

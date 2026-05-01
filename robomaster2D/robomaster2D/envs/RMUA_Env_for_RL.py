@@ -28,6 +28,7 @@ class RMUA_Multi_agent_Env(gym.Env):
     def __init__(self, args=Parameters()):
         self.use_obstacle_map = args.use_obstacle_map
         self.use_lidar = args.use_lidar
+        self.reward_scheme = getattr(args, 'reward_scheme', 'serppo')
 
         self.individual_observations = None
         self.public_observation = None
@@ -63,6 +64,8 @@ class RMUA_Multi_agent_Env(gym.Env):
             self.observation_matrix_shape = [2 + self.robot_num, args.obstacle_map_size, args.obstacle_map_size]
         elif self.use_lidar:
             self.observation_matrix_shape = [2 + self.robot_num, args.lidar_num]
+        else:
+            self.observation_matrix_shape = [1, 1]
         # flags
         self.cal_public_obs_already = False
 
@@ -188,6 +191,9 @@ class RMUA_Multi_agent_Env(gym.Env):
         done, info = self.simulator.step(self.decode_actions(actions))  # 只给其中一个传动作
 
         r = self.compute_reward()
+        info['shared_reward_'] = self.last_shared_reward
+        info['exclusive_reward_'] = self.last_exclusive_reward
+        info['total_reward_'] = self.last_total_reward
         # 记录每个机器人每回合的奖励：
         if done and self.do_render:
             for n in self.trainer_ids:
@@ -327,6 +333,13 @@ class RMUA_Multi_agent_Env(gym.Env):
             else:
                 robot.robot_info_text['总分'] = reward
             rewards.append(reward)
+        exclusive_rewards = list(rewards)
+        self.last_exclusive_reward = float(np.mean(exclusive_rewards)) if exclusive_rewards else None
+        self.last_shared_reward = None
+        if self.reward_scheme == 'shared' and rewards:
+            self.last_shared_reward = float(np.mean(rewards))
+            rewards = [self.last_shared_reward for _ in rewards]
+        self.last_total_reward = float(np.mean(rewards)) if rewards else None
         return rewards
 
     def calculate_public_observation(self):

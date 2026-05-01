@@ -1,0 +1,801 @@
+{
+  "generated_at_utc": "2026-04-29T07:12:37.493791+00:00",
+  "runs_dir": "/home/xybuser/rl/RM_rl/runs_multi_seed",
+  "registry": "/home/xybuser/rl/RM_rl/experiment_registry.yaml",
+  "alignment": "step_bin_shared_completed_range",
+  "shade": "ci95",
+  "min_seeds": 2,
+  "step_bin_override": null,
+  "plots": [
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/framework_ablation__episodic_return_mean.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/framework_ablation__episodic_return_mean.csv",
+      "group": "framework_ablation",
+      "metric": "episodic_return_mean",
+      "variants": [
+        {
+          "variant": "SERPPO",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-noPD",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO-noPD",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-noAM",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO-noAM",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-noBO",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO-noBO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/framework_ablation__training_win_rate.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/framework_ablation__training_win_rate.csv",
+      "group": "framework_ablation",
+      "metric": "training_win_rate",
+      "variants": [
+        {
+          "variant": "SERPPO",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-noPD",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO-noPD",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-noAM",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO-noAM",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-noBO",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO-noBO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/framework_ablation__critic_loss.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/framework_ablation__critic_loss.csv",
+      "group": "framework_ablation",
+      "metric": "critic_loss",
+      "variants": [
+        {
+          "variant": "SERPPO",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-noPD",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO-noPD",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-noAM",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO-noAM",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-noBO",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO-noBO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/framework_ablation__eval_win_rate.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/framework_ablation__eval_win_rate.csv",
+      "group": "framework_ablation",
+      "metric": "eval_win_rate",
+      "variants": [
+        {
+          "variant": "SERPPO",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-noPD",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO-noPD",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-noAM",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO-noAM",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-noBO",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO-noBO",
+          "available_seed_count": 10,
+          "plotted_points": 2,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/pseudo_termination__critic_loss.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/pseudo_termination__critic_loss.csv",
+      "group": "pseudo_termination",
+      "metric": "critic_loss",
+      "variants": [
+        {
+          "variant": "SERPPO",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-noPD",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO-noPD",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/pseudo_termination__value_loss.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/pseudo_termination__value_loss.csv",
+      "group": "pseudo_termination",
+      "metric": "value_loss",
+      "variants": [
+        {
+          "variant": "SERPPO",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-noPD",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO-noPD",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/obstacle_representation__episodic_return_mean.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/obstacle_representation__episodic_return_mean.csv",
+      "group": "obstacle_representation",
+      "metric": "episodic_return_mean",
+      "variants": [
+        {
+          "variant": "SERPPO-L",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-M",
+          "source_group": "obstacle_representation",
+          "source_variant": "SERPPO-M",
+          "available_seed_count": 10,
+          "plotted_points": 13,
+          "step_bin": 8192,
+          "shared_start_step": 8192,
+          "shared_end_step": 106496
+        },
+        {
+          "variant": "SERPPO-noBO",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO-noBO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/obstacle_representation__training_win_rate.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/obstacle_representation__training_win_rate.csv",
+      "group": "obstacle_representation",
+      "metric": "training_win_rate",
+      "variants": [
+        {
+          "variant": "SERPPO-L",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-M",
+          "source_group": "obstacle_representation",
+          "source_variant": "SERPPO-M",
+          "available_seed_count": 10,
+          "plotted_points": 13,
+          "step_bin": 8192,
+          "shared_start_step": 8192,
+          "shared_end_step": 106496
+        },
+        {
+          "variant": "SERPPO-noBO",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO-noBO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/obstacle_representation__obstacle_related_reward.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/obstacle_representation__obstacle_related_reward.csv",
+      "group": "obstacle_representation",
+      "metric": "obstacle_related_reward",
+      "variants": [
+        {
+          "variant": "SERPPO-L",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-M",
+          "source_group": "obstacle_representation",
+          "source_variant": "SERPPO-M",
+          "available_seed_count": 10,
+          "plotted_points": 13,
+          "step_bin": 8192,
+          "shared_start_step": 8192,
+          "shared_end_step": 106496
+        },
+        {
+          "variant": "SERPPO-noBO",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO-noBO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/obstacle_representation__critic_loss.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/obstacle_representation__critic_loss.csv",
+      "group": "obstacle_representation",
+      "metric": "critic_loss",
+      "variants": [
+        {
+          "variant": "SERPPO-L",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-M",
+          "source_group": "obstacle_representation",
+          "source_variant": "SERPPO-M",
+          "available_seed_count": 10,
+          "plotted_points": 13,
+          "step_bin": 8192,
+          "shared_start_step": 8192,
+          "shared_end_step": 106496
+        },
+        {
+          "variant": "SERPPO-noBO",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO-noBO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/actor_critic_parameterization__episodic_return_mean.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/actor_critic_parameterization__episodic_return_mean.csv",
+      "group": "actor_critic_parameterization",
+      "metric": "episodic_return_mean",
+      "variants": [
+        {
+          "variant": "independent_actor_critic",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "partially_shared_actor_critic",
+          "source_group": "actor_critic_parameterization",
+          "source_variant": "partially_shared_actor_critic",
+          "available_seed_count": 10,
+          "plotted_points": 2,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 131072
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/actor_critic_parameterization__training_win_rate.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/actor_critic_parameterization__training_win_rate.csv",
+      "group": "actor_critic_parameterization",
+      "metric": "training_win_rate",
+      "variants": [
+        {
+          "variant": "independent_actor_critic",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "partially_shared_actor_critic",
+          "source_group": "actor_critic_parameterization",
+          "source_variant": "partially_shared_actor_critic",
+          "available_seed_count": 10,
+          "plotted_points": 2,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 131072
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/actor_critic_parameterization__critic_loss.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/actor_critic_parameterization__critic_loss.csv",
+      "group": "actor_critic_parameterization",
+      "metric": "critic_loss",
+      "variants": [
+        {
+          "variant": "independent_actor_critic",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "partially_shared_actor_critic",
+          "source_group": "actor_critic_parameterization",
+          "source_variant": "partially_shared_actor_critic",
+          "available_seed_count": 10,
+          "plotted_points": 2,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 131072
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/reward_related_training_behavior__episodic_return_mean.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/reward_related_training_behavior__episodic_return_mean.csv",
+      "group": "reward_related_training_behavior",
+      "metric": "episodic_return_mean",
+      "variants": [
+        {
+          "variant": "SERPPO",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/reward_related_training_behavior__training_win_rate.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/reward_related_training_behavior__training_win_rate.csv",
+      "group": "reward_related_training_behavior",
+      "metric": "training_win_rate",
+      "variants": [
+        {
+          "variant": "SERPPO",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/reward_related_training_behavior__total_reward.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/reward_related_training_behavior__total_reward.csv",
+      "group": "reward_related_training_behavior",
+      "metric": "total_reward",
+      "variants": [
+        {
+          "variant": "SERPPO",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/recurrent_actor__episodic_return_mean.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/recurrent_actor__episodic_return_mean.csv",
+      "group": "recurrent_actor",
+      "metric": "episodic_return_mean",
+      "variants": [
+        {
+          "variant": "SERPPO",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-LSTM",
+          "source_group": "recurrent_actor",
+          "source_variant": "SERPPO-LSTM",
+          "available_seed_count": 10,
+          "plotted_points": 2,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 131072
+        },
+        {
+          "variant": "SERPPO-GRU",
+          "source_group": "recurrent_actor",
+          "source_variant": "SERPPO-GRU",
+          "available_seed_count": 10,
+          "plotted_points": 2,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 131072
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/recurrent_actor__training_win_rate.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/recurrent_actor__training_win_rate.csv",
+      "group": "recurrent_actor",
+      "metric": "training_win_rate",
+      "variants": [
+        {
+          "variant": "SERPPO",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-LSTM",
+          "source_group": "recurrent_actor",
+          "source_variant": "SERPPO-LSTM",
+          "available_seed_count": 10,
+          "plotted_points": 2,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 131072
+        },
+        {
+          "variant": "SERPPO-GRU",
+          "source_group": "recurrent_actor",
+          "source_variant": "SERPPO-GRU",
+          "available_seed_count": 10,
+          "plotted_points": 2,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 131072
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/recurrent_actor__critic_loss.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/recurrent_actor__critic_loss.csv",
+      "group": "recurrent_actor",
+      "metric": "critic_loss",
+      "variants": [
+        {
+          "variant": "SERPPO",
+          "source_group": "framework_ablation",
+          "source_variant": "SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 3,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 196608
+        },
+        {
+          "variant": "SERPPO-LSTM",
+          "source_group": "recurrent_actor",
+          "source_variant": "SERPPO-LSTM",
+          "available_seed_count": 10,
+          "plotted_points": 2,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 131072
+        },
+        {
+          "variant": "SERPPO-GRU",
+          "source_group": "recurrent_actor",
+          "source_variant": "SERPPO-GRU",
+          "available_seed_count": 10,
+          "plotted_points": 2,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 131072
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/future_observing_critic__episodic_return_mean.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/future_observing_critic__episodic_return_mean.csv",
+      "group": "future_observing_critic",
+      "metric": "episodic_return_mean",
+      "variants": [
+        {
+          "variant": "HO-SERPPO",
+          "source_group": "recurrent_actor",
+          "source_variant": "SERPPO-LSTM",
+          "available_seed_count": 10,
+          "plotted_points": 2,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 131072
+        },
+        {
+          "variant": "HFO-SERPPO",
+          "source_group": "future_observing_critic",
+          "source_variant": "HFO-SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 2,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 131072
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/future_observing_critic__training_win_rate.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/future_observing_critic__training_win_rate.csv",
+      "group": "future_observing_critic",
+      "metric": "training_win_rate",
+      "variants": [
+        {
+          "variant": "HO-SERPPO",
+          "source_group": "recurrent_actor",
+          "source_variant": "SERPPO-LSTM",
+          "available_seed_count": 10,
+          "plotted_points": 2,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 131072
+        },
+        {
+          "variant": "HFO-SERPPO",
+          "source_group": "future_observing_critic",
+          "source_variant": "HFO-SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 2,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 131072
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/future_observing_critic__critic_loss.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/future_observing_critic__critic_loss.csv",
+      "group": "future_observing_critic",
+      "metric": "critic_loss",
+      "variants": [
+        {
+          "variant": "HO-SERPPO",
+          "source_group": "recurrent_actor",
+          "source_variant": "SERPPO-LSTM",
+          "available_seed_count": 10,
+          "plotted_points": 2,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 131072
+        },
+        {
+          "variant": "HFO-SERPPO",
+          "source_group": "future_observing_critic",
+          "source_variant": "HFO-SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 2,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 131072
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/final_hfo_training__episodic_return_mean.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/final_hfo_training__episodic_return_mean.csv",
+      "group": "final_hfo_training",
+      "metric": "episodic_return_mean",
+      "variants": [
+        {
+          "variant": "HFO-SERPPO",
+          "source_group": "future_observing_critic",
+          "source_variant": "HFO-SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 2,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 131072
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/final_hfo_training__training_win_rate.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/final_hfo_training__training_win_rate.csv",
+      "group": "final_hfo_training",
+      "metric": "training_win_rate",
+      "variants": [
+        {
+          "variant": "HFO-SERPPO",
+          "source_group": "future_observing_critic",
+          "source_variant": "HFO-SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 2,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 131072
+        }
+      ]
+    },
+    {
+      "image": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/final_hfo_training__critic_loss.png",
+      "csv": "/home/xybuser/rl/RM_rl/plots_draft/training_curves/final_hfo_training__critic_loss.csv",
+      "group": "final_hfo_training",
+      "metric": "critic_loss",
+      "variants": [
+        {
+          "variant": "HFO-SERPPO",
+          "source_group": "future_observing_critic",
+          "source_variant": "HFO-SERPPO",
+          "available_seed_count": 10,
+          "plotted_points": 2,
+          "step_bin": 65536,
+          "shared_start_step": 65536,
+          "shared_end_step": 131072
+        }
+      ]
+    }
+  ]
+}

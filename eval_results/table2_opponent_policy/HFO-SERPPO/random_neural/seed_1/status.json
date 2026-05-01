@@ -1,0 +1,7 @@
+{
+  "status": "completed",
+  "end_time": "2026-04-28T10:50:55.600052+00:00",
+  "seed": 1,
+  "checkpoint": "/home/xybuser/rl/RM_rl/runs_multi_seed/future_observing_critic/HFO-SERPPO/seed_1/checkpoints/actor_best.pth",
+  "opponent": "random_neural"
+}

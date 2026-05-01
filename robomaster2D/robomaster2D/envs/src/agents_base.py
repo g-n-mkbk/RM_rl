@@ -12,6 +12,7 @@ class Base_Agent(object):
         self.robot_ids = [(i + self.robot_red_num if _id else i) for i in range(self.num_robots)]
         self.enemy_ids = [(i if _id else i + self.robot_red_num) for i in range(self.enemy_num)]
         self.action_type = options.action_type
+        self.use_action_mask = getattr(options, 'use_action_mask', True)
         self.nn_controlled = False
         self.orders = Orders_set(self.num_robots)
         if self.action_type == 'Hybrid':

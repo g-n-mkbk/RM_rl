@@ -1,6 +1,7 @@
 .idea
 /results/
 /robomaster2D/RMUA_simulator_gym.egg-info/
+/elegantrl_dq.egg-info/
 
 # Python/runtime cache
 __pycache__/

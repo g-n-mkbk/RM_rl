@@ -1,0 +1,9 @@
+{
+  "status": "failed",
+  "start_time": "2026-04-28T03:54:00.346354+00:00",
+  "end_time": "2026-04-28T03:54:01.232558+00:00",
+  "final_step": null,
+  "final_checkpoint": null,
+  "has_nan": false,
+  "error": "Traceback (most recent call last):\n  File \"scripts/rm_experiment.py\", line 430, in run_one\n    result = train_and_evaluate(training_args) or {}\n  File \"/home/xybuser/rl/RM_rl/elegantrl_dq/train/run.py\", line 324, in train_and_evaluate\n    'critic_eval_batch_size': getattr(args.config, 'critic_eval_batch_size', 512)}\nUnboundLocalError: local variable 'args' referenced before assignment\n"
+}

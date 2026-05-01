@@ -1,0 +1,9 @@
+{
+  "status": "failed",
+  "start_time": "2026-04-28T00:45:18.170018+00:00",
+  "end_time": "2026-04-28T00:48:18.781417+00:00",
+  "final_step": null,
+  "final_checkpoint": null,
+  "has_nan": false,
+  "error": "Traceback (most recent call last):\n  File \"scripts/rm_experiment.py\", line 429, in run_one\n    result = train_and_evaluate(training_args) or {}\n  File \"/home/xybuser/rl/RM_rl/elegantrl_dq/train/run.py\", line 393, in train_and_evaluate\n    logging_tuple = agent.update_net(buffer, batch_size, repeat_times, repeat_times_policy, soft_update_tau,\n  File \"/home/xybuser/rl/RM_rl/elegantrl_dq/agents/AgentPPO.py\", line 1357, in update_net\n    return super().update_net(buffer, batch_size, repeat_times, repeat_times_policy, soft_update_tau, if_train_actor)\n  File \"/home/xybuser/rl/RM_rl/elegantrl_dq/agents/AgentPPO.py\", line 84, in update_net\n    buf_state, buf_action, buf_r_sum, buf_logprob, buf_advantage, buf_state_2D, buf_state_rnn, buf_state_extra, _ = self.prepare_buffer(buffer)\n  File \"/home/xybuser/rl/RM_rl/elegantrl_dq/agents/AgentPPO.py\", line 1261, in prepare_buffer\n    reward_samples, mask_samples, pseudo_mask_samples, action_samples, a_noise_samples, state_samples, state_2D_samples, state_rnn_samples, extra_state_samples = buffer.sample_all()\n  File \"/home/xybuser/rl/RM_rl/elegantrl_dq/train/replay_buffer.py\", line 290, in sample_all\n    state_cnn[env_id][trainer] = torch.as_tensor(self.buf_state_cnn[env_id][trainer][0:tail_idx], device=self.device)\ntorch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 766.00 MiB (GPU 0; 7.63 GiB total capacity; 6.56 GiB already allocated; 176.75 MiB free; 6.57 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF\n"
+}

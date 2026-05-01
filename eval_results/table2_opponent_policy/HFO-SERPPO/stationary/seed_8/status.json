@@ -1,0 +1,7 @@
+{
+  "status": "completed",
+  "end_time": "2026-04-28T11:34:12.341116+00:00",
+  "seed": 8,
+  "checkpoint": "/home/xybuser/rl/RM_rl/runs_multi_seed/future_observing_critic/HFO-SERPPO/seed_8/checkpoints/actor_best.pth",
+  "opponent": "stationary"
+}

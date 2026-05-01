@@ -1,0 +1,9 @@
+experiment_group	variant	status	exit_code	final_step	has_train_log	has_checkpoint	run_dir
+framework_ablation	SERPPO	completed	0	1024	yes	yes	/home/xybuser/rl/RM_rl/graph_runs/smoke_matrix_20260501_graph_smoke/framework_ablation/SERPPO/seed_0
+framework_ablation	SERPPO-noPD	completed	0	1024	yes	yes	/home/xybuser/rl/RM_rl/graph_runs/smoke_matrix_20260501_graph_smoke/framework_ablation/SERPPO-noPD/seed_0
+framework_ablation	SERPPO-noAM	completed	0	1024	yes	yes	/home/xybuser/rl/RM_rl/graph_runs/smoke_matrix_20260501_graph_smoke/framework_ablation/SERPPO-noAM/seed_0
+framework_ablation	SERPPO-noBO	completed	0	1024	yes	yes	/home/xybuser/rl/RM_rl/graph_runs/smoke_matrix_20260501_graph_smoke/framework_ablation/SERPPO-noBO/seed_0
+framework_ablation	MAPPO	completed	0	1024	yes	yes	/home/xybuser/rl/RM_rl/graph_runs/smoke_matrix_20260501_graph_smoke/framework_ablation/MAPPO/seed_0
+framework_ablation	SERPPO-1DActionSpace	completed	0	1025	yes	yes	/home/xybuser/rl/RM_rl/graph_runs/smoke_matrix_20260501_graph_smoke/framework_ablation/SERPPO-1DActionSpace/seed_0
+future_observing_critic	HO-SERPPO	completed	0	1024	yes	yes	/home/xybuser/rl/RM_rl/graph_runs/smoke_matrix_20260501_graph_smoke/future_observing_critic/HO-SERPPO/seed_0
+future_observing_critic	HFO-SERPPO	completed	0	1024	yes	yes	/home/xybuser/rl/RM_rl/graph_runs/smoke_matrix_20260501_graph_smoke/future_observing_critic/HFO-SERPPO/seed_0

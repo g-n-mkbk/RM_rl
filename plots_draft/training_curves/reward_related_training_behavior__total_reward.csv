@@ -1,0 +1,4 @@
+group,metric,variant,source_group,source_variant,global_step,mean,std,stderr,ci95_low,ci95_high,seed_count,available_seed_count,min_seed_value,max_seed_value,step_bin,shared_start_step,shared_end_step
+reward_related_training_behavior,total_reward,SERPPO,framework_ablation,SERPPO,65536,-111.70055668959522,7.5880589131088385,2.399554918496563,-116.40368432984847,-106.99742904934196,10,10,-123.26246334310851,-97.50839694656489,65536,65536,196608
+reward_related_training_behavior,total_reward,SERPPO,framework_ablation,SERPPO,131072,-106.76765282373348,5.724788661867049,1.81033712946074,-110.31591359747654,-103.21939204999043,10,10,-117.68575624082231,-97.6140625,65536,65536,196608
+reward_related_training_behavior,total_reward,SERPPO,framework_ablation,SERPPO,196608,-108.71294633058785,4.187073845271825,1.3240690082378404,-111.30812158673402,-106.11777107444169,10,10,-115.54925373134328,-99.7673343605547,65536,65536,196608

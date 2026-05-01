@@ -1,8 +1,23 @@
 import signal
+import random
 
 from elegantrl_dq.train.replay_buffer import *
 from elegantrl_dq.train.evaluator import *
 from elegantrl_dq.utils.process_log import process_info
+
+
+class MergedLogger:
+    def __init__(self, *loggers):
+        self.loggers = [logger for logger in loggers if logger is not None]
+
+    def log(self, data, step=None):
+        for logger in self.loggers:
+            logger.log(data, step=step)
+
+    def save(self, path):
+        for logger in self.loggers:
+            if hasattr(logger, 'save'):
+                logger.save(path)
 
 
 class Configs:
@@ -101,6 +116,8 @@ class Configs:
         self.wandb_name = 'HFO-SERPPO' + '_seed_' + str(self.random_seed)
         self.wandb_group = None  # 是否障碍物地图
         self.wandb_job_type = None  # 是否神经网络控制的敌人
+        self.run_logger = None
+        self.deterministic_torch = False
 
 
 class Arguments:
@@ -163,8 +180,14 @@ class Arguments:
         if 'src.agents.rl_trainer' in self.config.env_config['blue_agents_path']:
             agent_num += self.config.env_config['robot_b_num']
         assert self.config.target_step > agent_num*least_target_step, "too small target_step, some bug will happen"
+        random.seed(self.config.random_seed)
         np.random.seed(self.config.random_seed)
         torch.manual_seed(self.config.random_seed)
+        if torch.cuda.is_available():
+            torch.cuda.manual_seed(self.config.random_seed)
+            torch.cuda.manual_seed_all(self.config.random_seed)
+        torch.backends.cudnn.deterministic = bool(self.config.deterministic_torch)
+        torch.backends.cudnn.benchmark = not bool(self.config.deterministic_torch)
         torch.set_num_threads(self.config.num_threads)
         torch.set_default_dtype(torch.float32)
 
@@ -205,6 +228,7 @@ def train_and_evaluate(args):
     configs = args.config
 
     if_train = args.config.if_train
+    run_logger = getattr(args.config, 'run_logger', None)
     if if_train:
         os.makedirs(cwd, exist_ok=True)
         if if_wandb and not new_processing_for_evaluation:
@@ -212,20 +236,25 @@ def train_and_evaluate(args):
             '''保存数据'''
             log_dir = Path("./results/wandb_logs") / args.env.env_name / 'NoObstacle' / 'ppo'
             os.makedirs(log_dir, exist_ok=True)
-            wandb_run = wandb.init(config=configs,
-                                   project=configs.env_name,
-                                   entity=configs.wandb_user,
-                                   notes=configs.wandb_notes,
-                                   name=configs.wandb_name,
-                                   group=configs.wandb_group,
-                                   dir=log_dir,
-                                   job_type=configs.wandb_job_type,
-                                   reinit=True)
+            wandb_kwargs = {
+                'config': configs,
+                'project': getattr(configs, 'wandb_project', configs.env_name),
+                'notes': configs.wandb_notes,
+                'name': configs.wandb_name,
+                'group': configs.wandb_group,
+                'dir': log_dir,
+                'job_type': configs.wandb_job_type,
+                'reinit': True,
+            }
+            if getattr(configs, 'wandb_user', None):
+                wandb_kwargs['entity'] = configs.wandb_user
+            wandb_run = wandb.init(**wandb_kwargs)
             wandb_run.config.update(configs.env_config)
         else:
             wandb_run = None
     else:
         wandb_run = None
+    logger = MergedLogger(wandb_run, run_logger) if (wandb_run or run_logger) else None
     '''training arguments'''
     net_dim = args.config.net_dim
     if_use_cnn = args.config.if_use_cnn
@@ -249,6 +278,7 @@ def train_and_evaluate(args):
     action_prediction_dim += 1
     extra_state_kwargs = {'use_extra_state_for_critic': args.config.use_extra_state_for_critic,
                           'use_action_prediction': args.config.use_action_prediction,
+                          'use_joint_action_head': getattr(args.config, 'use_joint_action_head', False),
                           'agent_num': args.env.args.robot_r_num + args.env.args.robot_b_num,
                           'action_prediction_dim': action_prediction_dim}
     '''frame stack'''
@@ -276,6 +306,7 @@ def train_and_evaluate(args):
     eval_times = args.config.eval_times
     save_interval = args.config.save_interval
     stochastic_policy_or_deterministic = args.config.stochastic_policy_or_deterministic
+    critic_eval_batch_size = getattr(args.config, 'critic_eval_batch_size', 512)
 
     del args  # In order to show these hyper-parameters clearly, I put them above.
 
@@ -295,7 +326,8 @@ def train_and_evaluate(args):
     if_multi_discrete = env.if_multi_discrete
     '''train args'''
     train_args = {'adaptive_entropy': adaptive_entropy,
-                  'dual_clip': dual_clip}
+                  'dual_clip': dual_clip,
+                  'critic_eval_batch_size': critic_eval_batch_size}
     '''selfPlay args'''
     self_play_args = {'self_play': self_play,
                       'if_build_enemy_act': if_build_enemy_act,
@@ -325,6 +357,7 @@ def train_and_evaluate(args):
                                      if_share_network=if_share_network, if_new_proc_eval=new_processing_for_evaluation,
                                      observation_matrix_shape=observation_matrix_shape, **train_args,
                                      **self_play_args, **extra_state_kwargs, **rnn_kwargs, **evaluation_kwargs)
+    buffer_action_dim = getattr(agent, 'policy_action_dim', action_dim)
 
     buffer_len = target_step + max_step
     async_evaluator = evaluator = None
@@ -332,12 +365,12 @@ def train_and_evaluate(args):
     if if_multi_processing and if_train:
         buffer = PlugInReplayBuffer(env=env, max_len=buffer_len, state_dim=state_dim,
                                     total_trainers_envs=total_trainers_envs,
-                                    action_dim=action_dim, observation_matrix_shape=observation_matrix_shape,
+                                    action_dim=buffer_action_dim, observation_matrix_shape=observation_matrix_shape,
                                     if_discrete=if_discrete, if_multi_discrete=if_multi_discrete,
                                     if_use_cnn=if_use_cnn,
                                     **extra_state_kwargs, **rnn_kwargs)
     else:
-        buffer = ReplayBuffer(max_len=buffer_len, state_dim=state_dim, action_dim=action_dim,
+        buffer = ReplayBuffer(max_len=buffer_len, state_dim=state_dim, action_dim=buffer_action_dim,
                               if_discrete=if_discrete, if_multi_discrete=if_multi_discrete)
     '''prepare for training'''
     agent.save_load_model(cwd=cwd, if_save=False)  # 读取上一次训练模型
@@ -351,7 +384,9 @@ def train_and_evaluate(args):
     '''start training'''
     if_train_actor = False if train_actor_step > 0 else True
     start_training = time.time()
+    train_iter = 0
     while if_train:
+        train_iter += 1
         if if_print_time:
             start_explore = time.time()
         with torch.no_grad():
@@ -374,15 +409,37 @@ def train_and_evaluate(args):
         logging_tuple += logging_list
         with torch.no_grad():
             if not new_processing_for_evaluation:
-                agent.evaluate(env_eval, gamma, steps=total_step, log_tuple=logging_tuple, logger=wandb_run)
+                agent.evaluate(env_eval, gamma, steps=total_step, log_tuple=logging_tuple, logger=logger)
             else:
                 async_evaluator.update(total_step, logging_tuple)
             if_train = not (total_step >= break_step or os.path.exists(f'{cwd}/stop'))
+        elapsed_time = time.time() - start_training
+        fps = total_step / elapsed_time if elapsed_time > 0 else 0
+        try:
+            terminal_metrics = {
+                'avgR': logging_tuple[3],
+                'win_rate_training': logging_tuple[4],
+                'critic_loss': logging_tuple[0],
+                'actor_loss': abs(logging_tuple[1]),
+            }
+        except Exception:
+            terminal_metrics = {}
+        metric_text = " ".join(
+            f"{key}={value:.4f}" for key, value in terminal_metrics.items()
+            if isinstance(value, (int, float, np.integer, np.floating))
+        )
+        print(
+            f"| TrainIter:{train_iter:05d} Step:{total_step}/{break_step} "
+            f"DeltaStep:{step} Elapsed:{elapsed_time:.0f}s FPS:{fps:.1f} {metric_text}",
+            flush=True,
+        )
         if if_print_time:
             print(f'| EvaluateUsedTime: {time.time() - start_evaluate:.0f}s')
             print(process_info())
-    print(f'| **** Training Finished **** | UsedTime: {time.time() - start_training:.0f}s | SavedDir: {cwd}')
+    print(f'| **** Training Finished **** | UsedTime: {time.time() - start_training:.0f}s | SavedDir: {cwd}', flush=True)
     env.stop()
+    if env_eval is not env and hasattr(env_eval, 'stop'):
+        env_eval.stop()
     if wandb_run:
         wandb_run.finish()
-    exit()
+    return {'total_step': total_step, 'cwd': cwd}

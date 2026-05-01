@@ -1,0 +1,9 @@
+{
+  "status": "completed",
+  "start_time": "2026-04-28T08:43:19.045070+00:00",
+  "end_time": "2026-04-28T08:52:06.777626+00:00",
+  "final_step": 131087,
+  "final_checkpoint": "/home/xybuser/rl/RM_rl/runs_multi_seed/recurrent_actor/SERPPO-GRU/seed_7/checkpoints/actor_best.pth",
+  "has_nan": false,
+  "error": null
+}

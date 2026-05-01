@@ -38,6 +38,7 @@ class Parameters:
     episodes = 100000
     render_per_frame = 600
     action_type = 'MultiDiscrete'
+    use_action_mask = True
     obstacle_map_unit = 8
     obstacle_map_size = 100
 
@@ -84,6 +85,7 @@ class Parameters:
 
     # 有关地图信息：
     enable_blocks = True
+    arena_layout = 'original'
 
     # 有关Astar：
     Astar_map_x_size = 81

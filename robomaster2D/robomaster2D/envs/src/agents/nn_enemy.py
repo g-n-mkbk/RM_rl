@@ -30,6 +30,6 @@ class My_Agent(Base_Agent):
             self.orders.set[i].rotate = action[2]
             if self.enemy_num > 1:
                 self.orders.set[i].shoot_target_enemy = action[4]
-            if game_state.robots[self.robot_ids[i]].aimed_enemy is not None:
+            if (not self.use_action_mask) or game_state.robots[self.robot_ids[i]].aimed_enemy is not None:
                 self.orders.set[i].shoot = action[3]
         return self.orders

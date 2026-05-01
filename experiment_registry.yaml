@@ -1,0 +1,228 @@
+{
+  "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "defaults": {
+    "implemented": true,
+    "num_envs": 10,
+    "break_step": 100000000,
+    "target_step": 65536,
+    "eval_gap": 180,
+    "eval_times": 20,
+    "opponent_policy": "mixed_bt",
+    "eval_opponent_policy": "mixed_bt",
+    "team_size": "2v2",
+    "rl_robot_count": 2,
+    "enemy_count": 2,
+    "arena_layout": "original",
+    "enable_blocks": true,
+    "action_type": "MultiDiscrete",
+    "action_mask_enabled": true,
+    "pseudo_termination_enabled": true,
+    "obstacle_representation": "lidar",
+    "actor_critic_parameterization": "independent",
+    "recurrent_type": "none",
+    "future_observing_critic": false,
+    "reward_scheme": "serppo",
+    "notes": ""
+  },
+  "experiment_groups": [
+    {
+      "name": "framework_ablation",
+      "paper_target": "Fig. 7",
+      "defaults": {
+        "opponent_policy": "mixed_bt",
+        "enable_blocks": true,
+        "arena_layout": "original"
+      },
+      "variants": [
+        {
+          "name": "MAPPO",
+          "implemented": true,
+          "reward_scheme": "shared",
+          "pseudo_termination_enabled": false,
+          "notes": "MAPPO-style baseline for the current RoboMaster runner: shared team reward with the existing PPO rollout/update path, no pseudo-termination-aware value target. This is the runnable baseline used for the selected graph rerun."
+        },
+        {
+          "name": "SERPPO",
+          "notes": "Default SERPPO maps to independent actor-critic, lidar obstacle observation, multi-discrete actions, action mask on, pseudo termination on, no recurrent actor, no future-observing critic."
+        },
+        {
+          "name": "SERPPO-noPD",
+          "pseudo_termination_enabled": false,
+          "notes": "Uses raw return handling so pseudo truncations are treated as terminal in the current code path."
+        },
+        {
+          "name": "SERPPO-noAM",
+          "action_mask_enabled": false,
+          "notes": "Disables the shoot legality gate in rl_trainer/nn_enemy."
+        },
+        {
+          "name": "SERPPO-1DActionSpace",
+          "policy_action_head": "joint_discrete",
+          "notes": "Uses one categorical policy head over the full Cartesian product of the default multi-discrete actions; sampled joint actions are decoded back to environment multi-discrete commands."
+        },
+        {
+          "name": "SERPPO-noBO",
+          "obstacle_representation": "none",
+          "notes": "Keeps arena obstacles enabled but removes lidar/local obstacle observation from the policy input."
+        }
+      ]
+    },
+    {
+      "name": "pseudo_termination",
+      "paper_target": "Fig. 8",
+      "defaults": {
+        "reuse_allowed": true
+      },
+      "variants": [
+        {
+          "name": "SERPPO",
+          "reuse_of": "framework_ablation/SERPPO"
+        },
+        {
+          "name": "SERPPO-noPD",
+          "pseudo_termination_enabled": false,
+          "reuse_of": "framework_ablation/SERPPO-noPD"
+        }
+      ]
+    },
+    {
+      "name": "obstacle_representation",
+      "paper_target": "Fig. A1 moved to main text",
+      "variants": [
+        {
+          "name": "SERPPO-L",
+          "obstacle_representation": "lidar",
+          "reuse_of": "framework_ablation/SERPPO",
+          "notes": "SERPPO-L is equivalent to default SERPPO because the default obstacle representation is lidar."
+        },
+        {
+          "name": "SERPPO-M",
+          "obstacle_representation": "local_map",
+          "num_envs": 4,
+          "target_step": 8192,
+          "batch_size": 1024,
+          "critic_eval_batch_size": 256,
+          "notes": "Local-map CNN observations are much larger than lidar; reduced rollout/batch size avoids GPU OOM on the 8GB RTX 4070 Laptop GPU."
+        },
+        {
+          "name": "SERPPO-noBO",
+          "obstacle_representation": "none",
+          "reuse_of": "framework_ablation/SERPPO-noBO"
+        }
+      ]
+    },
+    {
+      "name": "actor_critic_parameterization",
+      "paper_target": "Fig. A2 moved to main text",
+      "variants": [
+        {
+          "name": "independent_actor_critic",
+          "actor_critic_parameterization": "independent",
+          "reuse_of": "framework_ablation/SERPPO",
+          "notes": "Default SERPPO uses independent actor and critic."
+        },
+        {
+          "name": "partially_shared_actor_critic",
+          "actor_critic_parameterization": "partially_shared"
+        }
+      ]
+    },
+    {
+      "name": "reward_related_training_behavior",
+      "paper_target": "Fig. A3 moved to main text",
+      "variants": [
+        {
+          "name": "SERPPO",
+          "reuse_of": "framework_ablation/SERPPO"
+        },
+        {
+          "name": "MAPPO",
+          "reward_scheme": "shared",
+          "reuse_of": "framework_ablation/MAPPO"
+        }
+      ]
+    },
+    {
+      "name": "recurrent_actor",
+      "paper_target": "Fig. 9",
+      "variants": [
+        {
+          "name": "SERPPO",
+          "recurrent_type": "none",
+          "reuse_of": "framework_ablation/SERPPO"
+        },
+        {
+          "name": "SERPPO-LSTM",
+          "recurrent_type": "lstm"
+        },
+        {
+          "name": "SERPPO-GRU",
+          "recurrent_type": "gru"
+        }
+      ]
+    },
+    {
+      "name": "future_observing_critic",
+      "paper_target": "Fig. 10",
+      "variants": [
+        {
+          "name": "HO-SERPPO",
+          "recurrent_type": "lstm",
+          "future_observing_critic": false,
+          "reuse_of": "recurrent_actor/SERPPO-LSTM",
+          "notes": "HO-SERPPO is equivalent to SERPPO-LSTM in this code: LSTM actor with no future-observing critic."
+        },
+        {
+          "name": "HFO-SERPPO",
+          "recurrent_type": "lstm",
+          "future_observing_critic": true,
+          "history_action_stack_num": 0,
+          "notes": "Future-observing critic maps to use_extra_state_for_critic=True and use_action_prediction=True; current future cue horizon is one environment step."
+        }
+      ]
+    },
+    {
+      "name": "final_hfo_training",
+      "paper_target": "Table 2, Table 3, Table 4, qualitative cases",
+      "variants": [
+        {
+          "name": "HFO-SERPPO",
+          "recurrent_type": "lstm",
+          "future_observing_critic": true,
+          "reuse_of": "future_observing_critic/HFO-SERPPO"
+        }
+      ]
+    }
+  ],
+  "evaluations": [
+    {
+      "name": "table2_opponent_policy",
+      "eval_episodes": 100,
+      "policies": ["HFO-SERPPO", "MAPPO", "aggressive_bt"],
+      "opponents": ["aggressive_bt", "defensive_bt", "stationary", "random_action", "random_neural", "MAPPO", "HFO-SERPPO"],
+      "notes": "MAPPO policy cells require a trained MAPPO checkpoint after MAPPO integration is completed."
+    },
+    {
+      "name": "table3_team_size",
+      "eval_episodes": 100,
+      "policy": "HFO-SERPPO",
+      "settings": ["1v1_aggressive", "1v2_aggressive", "2v1_aggressive", "2v2_aggressive", "1v1_defensive", "1v2_defensive", "2v1_defensive", "2v2_defensive"],
+      "notes": "The code still needs a disabled-robot-at-reset switch for exact fixed-observation team-size evaluation."
+    },
+    {
+      "name": "table4_arena_layout",
+      "eval_episodes": 100,
+      "policy": "HFO-SERPPO",
+      "arenas": ["original", "arena_1", "arena_2", "arena_3"],
+      "opponents": ["defensive_bt", "aggressive_bt"],
+      "notes": "Only original and no-block layouts are present in code. Arena 1/2/3 obstacle subsets still need exact definitions from the paper figures or source data."
+    },
+    {
+      "name": "qualitative_cases",
+      "eval_episodes": 1,
+      "policy": "HFO-SERPPO",
+      "opponents": ["defensive_bt", "aggressive_bt"],
+      "notes": "Replay/screenshot export is not currently implemented in the environment."
+    }
+  ]
+}

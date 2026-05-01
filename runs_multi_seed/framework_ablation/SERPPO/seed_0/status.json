@@ -1,0 +1,9 @@
+{
+  "status": "running",
+  "start_time": "2026-04-30T14:45:30.421744+00:00",
+  "end_time": null,
+  "final_step": null,
+  "final_checkpoint": null,
+  "has_nan": false,
+  "error": null
+}

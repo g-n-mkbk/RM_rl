@@ -1,0 +1,9 @@
+{
+  "status": "completed",
+  "start_time": "2026-04-30T16:16:13.110153+00:00",
+  "end_time": "2026-04-30T16:16:48.552816+00:00",
+  "final_step": 1025,
+  "final_checkpoint": "/home/xybuser/rl/RM_rl/graph_runs/smoke_matrix_20260501_graph_smoke/framework_ablation/SERPPO-1DActionSpace/seed_0/checkpoints/actor_best.pth",
+  "has_nan": false,
+  "error": null
+}

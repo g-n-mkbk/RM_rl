@@ -1,0 +1,9 @@
+{
+  "status": "completed",
+  "start_time": "2026-04-28T00:39:32.781413+00:00",
+  "end_time": "2026-04-28T00:45:16.487646+00:00",
+  "final_step": 196641,
+  "final_checkpoint": "/home/xybuser/rl/RM_rl/runs_multi_seed/framework_ablation/SERPPO-noBO/seed_9/checkpoints/actor_best.pth",
+  "has_nan": false,
+  "error": null
+}

@@ -1,0 +1,9 @@
+{
+  "status": "completed",
+  "start_time": "2026-04-28T05:51:53.472047+00:00",
+  "end_time": "2026-04-28T06:00:39.102159+00:00",
+  "final_step": 131091,
+  "final_checkpoint": "/home/xybuser/rl/RM_rl/runs_multi_seed/actor_critic_parameterization/partially_shared_actor_critic/seed_8/checkpoints/actor_best.pth",
+  "has_nan": false,
+  "error": null
+}

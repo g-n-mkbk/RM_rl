@@ -1,0 +1,207 @@
+{
+    "os": "Linux-6.8.0-110-generic-x86_64-with-glibc2.17",
+    "python": "3.8.20",
+    "heartbeatAt": "2026-04-30T14:45:12.584402",
+    "startedAt": "2026-04-30T14:45:10.320399",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "<stdin>",
+    "codePathLocal": null,
+    "git": {
+        "remote": "https://github.com/g-n-mkbk/RM_rl",
+        "commit": "7b6593e1f0c9e2d197929658d0b332b03478895b"
+    },
+    "email": "20246755@stu.neu.edu.cn",
+    "root": "/home/xybuser/rl/RM_rl",
+    "host": "XYB-OMEN10",
+    "username": "xybuser",
+    "executable": "/home/xybuser/anaconda3/envs/rm8/bin/python",
+    "cpu_count": 24,
+    "cpu_count_logical": 32,
+    "cpu_freq": {
+        "current": 1320.31171875,
+        "min": 800.0,
+        "max": 4875.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 824.272,
+            "min": 800.0,
+            "max": 5600.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5600.0
+        },
+        {
+            "current": 973.968,
+            "min": 800.0,
+            "max": 5600.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5600.0
+        },
+        {
+            "current": 908.958,
+            "min": 800.0,
+            "max": 5600.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5600.0
+        },
+        {
+            "current": 1800.018,
+            "min": 800.0,
+            "max": 5600.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5600.0
+        },
+        {
+            "current": 886.427,
+            "min": 800.0,
+            "max": 5800.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5800.0
+        },
+        {
+            "current": 800.175,
+            "min": 800.0,
+            "max": 5800.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5800.0
+        },
+        {
+            "current": 1800.0,
+            "min": 800.0,
+            "max": 5600.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5600.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5600.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5600.0
+        },
+        {
+            "current": 1382.212,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 1799.96,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 981.288,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 1799.882,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 922.164,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 1642.177,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 1026.829,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 1207.527,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 1800.041,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 1802.489,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 1801.099,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 1800.033,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 1263.084,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 1318.181,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 977.794,
+            "min": 800.0,
+            "max": 4100.0
+        },
+        {
+            "current": 1362.588,
+            "min": 800.0,
+            "max": 4100.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 394.4111862182617,
+            "used": 285.6001205444336
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 4070 Laptop GPU",
+            "memory_total": 8585740288
+        }
+    ],
+    "memory": {
+        "total": 31.048786163330078
+    }
+}

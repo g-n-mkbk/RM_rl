@@ -1,0 +1,9 @@
+{
+  "status": "completed",
+  "start_time": "2026-04-28T03:59:51.608493+00:00",
+  "end_time": "2026-04-28T04:13:33.398332+00:00",
+  "final_step": 122939,
+  "final_checkpoint": "/home/xybuser/rl/RM_rl/runs_multi_seed/obstacle_representation/SERPPO-M/seed_7/checkpoints/actor_best.pth",
+  "has_nan": false,
+  "error": "Stopped intentionally after exceeding adjusted 100000-step budget to keep the multi-seed experiment tractable; valid logs/checkpoint were already saved."
+}

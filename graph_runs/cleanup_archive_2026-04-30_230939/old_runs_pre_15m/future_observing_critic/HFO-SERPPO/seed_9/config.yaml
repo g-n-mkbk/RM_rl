@@ -1,0 +1,225 @@
+{
+  "metadata": {
+    "experiment_group": "future_observing_critic",
+    "variant_name": "HFO-SERPPO",
+    "seed": 9,
+    "eval_times": 5,
+    "pseudo_termination_enabled": true,
+    "action_mask_enabled": true,
+    "obstacle_representation": "lidar",
+    "actor_critic_parameterization": "independent",
+    "recurrent_type": "lstm",
+    "future_observing_critic": true,
+    "opponent_policy": "mixed_bt",
+    "arena_layout": "original",
+    "team_size": "2v2",
+    "rl_robot_count": 2,
+    "enemy_count": 2
+  },
+  "variant": {
+    "implemented": true,
+    "num_envs": 10,
+    "break_step": 100000000,
+    "target_step": 65536,
+    "eval_gap": 180,
+    "eval_times": 20,
+    "opponent_policy": "mixed_bt",
+    "eval_opponent_policy": "mixed_bt",
+    "team_size": "2v2",
+    "rl_robot_count": 2,
+    "enemy_count": 2,
+    "arena_layout": "original",
+    "enable_blocks": true,
+    "action_type": "MultiDiscrete",
+    "action_mask_enabled": true,
+    "pseudo_termination_enabled": true,
+    "obstacle_representation": "lidar",
+    "actor_critic_parameterization": "independent",
+    "recurrent_type": "lstm",
+    "future_observing_critic": true,
+    "reward_scheme": "serppo",
+    "notes": "Future-observing critic maps to use_extra_state_for_critic=True and use_action_prediction=True; current future cue horizon is one environment step.",
+    "name": "HFO-SERPPO",
+    "history_action_stack_num": 0,
+    "experiment_group": "future_observing_critic",
+    "variant_name": "HFO-SERPPO",
+    "reuse_of": null
+  },
+  "effective_training_config": {
+    "num_envs": 10,
+    "break_step": 100000,
+    "target_step": 65536,
+    "batch_size": 8192,
+    "repeat_times": 4,
+    "repeat_times_policy": 4,
+    "eval_times": 5,
+    "eval_gap": 180,
+    "random_seed": 9,
+    "gamma": 0.998,
+    "reward_scale": 0.5,
+    "learning_rate": 0.0002,
+    "if_per_or_gae": true,
+    "if_use_cnn": true,
+    "if_use_rnn": true,
+    "LSTM_or_GRU": true,
+    "if_share_network": false,
+    "use_extra_state_for_critic": true,
+    "use_action_prediction": true,
+    "frame_stack_num": 1,
+    "history_action_stack_num": 0,
+    "deterministic_torch": false,
+    "cwd": "/home/xybuser/rl/RM_rl/runs_multi_seed/future_observing_critic/HFO-SERPPO/seed_9/checkpoints"
+  },
+  "env_config": {
+    "Astar_map_x_size": 81,
+    "Astar_map_y_size": 45,
+    "Astar_obstacle_expand": 3,
+    "action_type": "MultiDiscrete",
+    "arena_layout": "original",
+    "armor_hp_reduce": {
+      "behind": 60,
+      "front": 20,
+      "left": 40,
+      "right": 40,
+      "not_bullet": 10
+    },
+    "blue_agents_name": "HITCSC",
+    "blue_agents_path": [
+      "src.agents.handcrafted_enemy",
+      "src.agents.retreat_enemy"
+    ],
+    "buff_mode": false,
+    "collision_bounce": false,
+    "collision_reduce_hp": false,
+    "cooling_freq": 10,
+    "do_plot": [
+      true,
+      true,
+      false,
+      false
+    ],
+    "do_route_plan": false,
+    "enable_blocks": true,
+    "energySaving_mode": false,
+    "episode_step": 128,
+    "episode_time": 180,
+    "episodes": 100000,
+    "eval_blue_agents_path": [
+      "src.agents.handcrafted_enemy",
+      "src.agents.retreat_enemy"
+    ],
+    "frame_num_one_second": 20.0,
+    "frame_num_one_step": 1,
+    "highFrameRate_mode": true,
+    "impact_effect": true,
+    "lidar_num": 30,
+    "move_along_the_axis": true,
+    "no_dying": [
+      false,
+      false
+    ],
+    "obstacle_map_size": 100,
+    "obstacle_map_unit": 8,
+    "overheating_protection": true,
+    "priority_init_capacity": 1000,
+    "random_start_far_dis": 350,
+    "random_start_far_pos": true,
+    "random_start_pos": true,
+    "random_start_prob": 1,
+    "red_agents_name": "Critical Hit",
+    "red_agents_path": [
+      "src.agents.rl_trainer"
+    ],
+    "render": false,
+    "render_per_frame": 600,
+    "reward_scheme": "serppo",
+    "robot_b_num": 2,
+    "robot_r_num": 2,
+    "rotate_by_route_plan": false,
+    "show_center_barrier_vertices": false,
+    "show_figure": true,
+    "show_goal_line": false,
+    "show_goals_position": false,
+    "show_poses": false,
+    "show_robot_data": true,
+    "show_robot_points": false,
+    "show_state_data": true,
+    "single_input": false,
+    "start_angle": [
+      180,
+      90,
+      0,
+      -90
+    ],
+    "start_bullet": [
+      500,
+      500,
+      500,
+      500
+    ],
+    "start_hp": [
+      200,
+      200,
+      200,
+      200
+    ],
+    "start_pos": [
+      [
+        758,
+        398
+      ],
+      [
+        758,
+        50
+      ],
+      [
+        50,
+        50
+      ],
+      [
+        50,
+        398
+      ]
+    ],
+    "superQuiet": true,
+    "time_delay_frame": 0,
+    "training_mode": false,
+    "unlimited_bullet": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "use_action_mask": true,
+    "use_lidar": true,
+    "use_obstacle_map": false
+  },
+  "worker_seeds": {
+    "train": [
+      90000,
+      90001,
+      90002,
+      90003,
+      90004,
+      90005,
+      90006,
+      90007,
+      90008,
+      90009
+    ],
+    "eval": [
+      900000,
+      900001,
+      900002,
+      900003,
+      900004,
+      900005,
+      900006,
+      900007,
+      900008,
+      900009
+    ]
+  },
+  "command": "scripts/rm_experiment.py --experiment-group future_observing_critic --variant HFO-SERPPO --seed 9 --break-step 100000 --eval-times 5",
+  "created_at": "2026-04-28T10:29:55.683947+00:00"
+}

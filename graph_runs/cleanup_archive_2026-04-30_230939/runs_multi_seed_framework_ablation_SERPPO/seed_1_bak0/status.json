@@ -1,0 +1,9 @@
+{
+  "status": "failed",
+  "start_time": "2026-04-27T16:16:23.843246+00:00",
+  "end_time": "2026-04-27T16:19:49.428820+00:00",
+  "final_step": null,
+  "final_checkpoint": null,
+  "has_nan": false,
+  "error": "Stopped after feasibility check; full 100000000-step sweep is too long for the current interactive execution window."
+}

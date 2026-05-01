@@ -1,0 +1,7 @@
+{
+  "status": "completed",
+  "end_time": "2026-04-28T10:59:30.619978+00:00",
+  "seed": 3,
+  "checkpoint": "/home/xybuser/rl/RM_rl/runs_multi_seed/future_observing_critic/HFO-SERPPO/seed_3/checkpoints/actor_best.pth",
+  "opponent": "aggressive_bt"
+}

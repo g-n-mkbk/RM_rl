@@ -1,0 +1,11 @@
+graph_id	figure_source	experiment_group	variant	break_step	target_step	eval_gap	eval_times	seeds	implemented	status_note
+yb3_9	docs/graph/yb3_9.jpg	framework_ablation	SERPPO	15000000	16384	0	20	0 1 2 3 4	true	run
+yb3_9	docs/graph/yb3_9.jpg	framework_ablation	SERPPO-noPD	15000000	16384	0	20	0 1 2 3 4	true	run
+yb3_9	docs/graph/yb3_9.jpg	framework_ablation	SERPPO-noAM	15000000	16384	0	20	0 1 2 3 4	true	run
+yb3_9	docs/graph/yb3_9.jpg	framework_ablation	SERPPO-noBO	15000000	16384	0	20	0 1 2 3 4	true	run
+yb3_9	docs/graph/yb3_9.jpg	framework_ablation	MAPPO	15000000	16384	0	20	0 1 2 3 4	true	run: shared-reward MAPPO-style baseline
+yb3_9	docs/graph/yb3_9.jpg	framework_ablation	SERPPO-1DActionSpace	15000000	16384	0	20	0 1 2 3 4	true	run: joint-discrete single-head policy
+yb3_15	docs/graph/yb3_15.jpg	framework_ablation	SERPPO	15000000	16384	0	20	0 1 2 3 4	true	reuse from yb3_9 for value_loss/critic_loss
+yb3_15	docs/graph/yb3_15.jpg	framework_ablation	SERPPO-noPD	15000000	16384	0	20	0 1 2 3 4	true	reuse from yb3_9 for value_loss/critic_loss
+yb4_8	docs/graph/yb4_8.jpg	future_observing_critic	HO-SERPPO	15000000	16384	0	20	0 1 2 3 4	true	run first pass at 15M; full old figure was about 100M
+yb4_8	docs/graph/yb4_8.jpg	future_observing_critic	HFO-SERPPO	15000000	16384	0	20	0 1 2 3 4	true	run first pass at 15M; full old figure was about 100M

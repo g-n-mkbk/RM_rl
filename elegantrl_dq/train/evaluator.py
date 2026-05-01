@@ -171,7 +171,8 @@ class Evaluator:
                   f"\n| red_draw_rate:{infos_dict['red_draw_rate']:.2f}".ljust(30, " ") + "|",
                   f"\n| new red_win_rate:{infos_dict['red_win']:.2f}".ljust(30, " ") + "|",
                   f"\n| new red_fail_rate:{infos_dict['red_fail']:.2f}".ljust(30, " ") + "|",
-                  "\n---------------------------------".ljust(30, "-"))
+                  "\n---------------------------------".ljust(30, "-"),
+                  flush=True)
         else:
             if logger:
                 log_tuple[1] = abs(log_tuple[1])
@@ -190,7 +191,8 @@ class Evaluator:
                   f"\n| actor loss: {log_tuple[1]:8.4f}".ljust(30, " ") + "|",
                   f"\n| logprob: {log_tuple[2]:8.4f}".ljust(30, " ") + "|",
                   f"\n| win_rate: {log_tuple[4]:8.4f}".ljust(30, " ") + "|",
-                  "\n---------------------------------".ljust(30, "-"))
+                  "\n---------------------------------".ljust(30, "-"),
+                  flush=True)
 
     @staticmethod
     def get_r_avg_std_s_avg_std(rewards_steps_list):

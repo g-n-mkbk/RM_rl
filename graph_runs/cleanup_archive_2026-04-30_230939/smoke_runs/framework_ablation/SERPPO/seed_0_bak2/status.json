@@ -1,0 +1,9 @@
+{
+  "status": "failed",
+  "start_time": "2026-04-30T13:48:43.002083+00:00",
+  "end_time": "2026-04-30T13:49:14.274601+00:00",
+  "final_step": null,
+  "final_checkpoint": null,
+  "has_nan": false,
+  "error": "Traceback (most recent call last):\n  File \"scripts/rm_experiment.py\", line 484, in run_one\n    result = train_and_evaluate(training_args) or {}\n  File \"/home/xybuser/rl/RM_rl/elegantrl_dq/train/run.py\", line 399, in train_and_evaluate\n    logging_tuple = agent.update_net(buffer, batch_size, repeat_times, repeat_times_policy, soft_update_tau,\n  File \"/home/xybuser/rl/RM_rl/elegantrl_dq/agents/AgentPPO.py\", line 1369, in update_net\n    return super().update_net(buffer, batch_size, repeat_times, repeat_times_policy, soft_update_tau, if_train_actor)\n  File \"/home/xybuser/rl/RM_rl/elegantrl_dq/agents/AgentPPO.py\", line 138, in update_net\n    return obj_critic.item(), obj_actor.item(), logprob.mean().item()  # logging_tuple\nAttributeError: 'NoneType' object has no attribute 'item'\n"
+}

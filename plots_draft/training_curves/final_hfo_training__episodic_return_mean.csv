@@ -1,0 +1,3 @@
+group,metric,variant,source_group,source_variant,global_step,mean,std,stderr,ci95_low,ci95_high,seed_count,available_seed_count,min_seed_value,max_seed_value,step_bin,shared_start_step,shared_end_step
+final_hfo_training,episodic_return_mean,HFO-SERPPO,future_observing_critic,HFO-SERPPO,65536,-109.85413941023253,8.049962018918544,2.5456215057630054,-114.84355756152803,-104.86472125893704,10,10,-123.94883040935673,-96.63239875389408,65536,65536,131072
+final_hfo_training,episodic_return_mean,HFO-SERPPO,future_observing_critic,HFO-SERPPO,131072,-110.22008852961069,6.920547367434381,2.188469233617483,-114.50948822750095,-105.93068883172043,10,10,-119.36123348017621,-98.31393568147014,65536,65536,131072

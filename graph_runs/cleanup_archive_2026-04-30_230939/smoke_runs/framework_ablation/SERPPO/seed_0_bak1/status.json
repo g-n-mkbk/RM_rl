@@ -1,0 +1,9 @@
+{
+  "status": "failed",
+  "start_time": "2026-04-30T13:46:40.652692+00:00",
+  "end_time": "2026-04-30T13:46:45.334694+00:00",
+  "final_step": null,
+  "final_checkpoint": null,
+  "has_nan": false,
+  "error": "Traceback (most recent call last):\n  File \"scripts/rm_experiment.py\", line 484, in run_one\n    result = train_and_evaluate(training_args) or {}\n  File \"/home/xybuser/rl/RM_rl/elegantrl_dq/train/run.py\", line 251, in train_and_evaluate\n    wandb_run = wandb.init(**wandb_kwargs)\n  File \"/home/xybuser/anaconda3/envs/rm8/lib/python3.8/site-packages/wandb/sdk/wandb_init.py\", line 1200, in init\n    raise e\n  File \"/home/xybuser/anaconda3/envs/rm8/lib/python3.8/site-packages/wandb/sdk/wandb_init.py\", line 1181, in init\n    run = wi.init()\n  File \"/home/xybuser/anaconda3/envs/rm8/lib/python3.8/site-packages/wandb/sdk/wandb_init.py\", line 780, in init\n    raise error\nwandb.errors.CommError: It appears that you do not have permission to access the requested resource. Please reach out to the project owner to grant you access. If you have the correct permissions, verify that there are no issues with your networking setup.(Error 403: Forbidden)\n"
+}
